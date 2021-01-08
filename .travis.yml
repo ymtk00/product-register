@@ -5,7 +5,7 @@ services: docker
 before_install:
   - echo “$DOCKER_PASSWORD” | docker login -u “$DOCKER_USERNAME” --password-stdin
   - docker-compose up --build -d
-  - docker login -u "$HEROKU_USERNAME" -p "$HEROKU_API_kEY" registry.heroku.com
+  - docker login -u "$HEROKU_USERNAME" -p "$HEROKU_API_KEY" registry.heroku.com
 
 script:
   - docker-compose exec --env 'RAILS_ENV=test' web rails db:create
